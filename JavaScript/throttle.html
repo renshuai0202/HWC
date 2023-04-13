@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<!-- 
+  一段时间内，限制一个函数的执行次数。
+  设置一个定时器，在定时器时间内只允许执行函数一次，如果在定时器时间内再次触发该函数，则忽略该次触发。
+ -->
+<body>
+  <div style="height: 2000px;"></div>
+  <script>
+    function throttle(fn, delay) {
+      let timer = null;
+      return function() {
+        if(!timer) {
+          timer = setTimeout(() => {
+            fn.apply(this, arguments);
+            timer = null;
+          }, delay);
+        }
+      }
+    }
+
+    window.addEventListener('scroll', throttle(function() {
+      console.log('事件触发后，1秒内，如果再次触发事件，则忽略该次触发');
+    }, 1000));
+  </script>
+</body>
+</html>
