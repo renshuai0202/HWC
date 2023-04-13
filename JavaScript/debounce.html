@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<!-- 
+  在一段时间内，事件触发多次，则只执行最后一次事件
+ -->
+<body>
+  <div style="height: 2000px"></div>
+  <script>
+    function debounce(fn, delay) {
+      let timer = null;
+      return function() {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          fn.apply(this, arguments);
+        }, delay);
+      }
+    }
+
+    window.addEventListener('scroll', debounce(function() {
+      console.log('1秒内，事件触发多次，只执行最后一次事件');
+    }, 1000))
+  </script>
+</body>
+</html>
