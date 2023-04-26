@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button class="btnXY" >打印坐标</button>
+  <button onclick="moveXY()">移动到(0, 0)</button>
+
+  <script>
+    const btnXY = document.querySelector('.btnXY');
+    btnXY.addEventListener('click', function() {
+      const x = window.screenLeft;
+      const y = window.screenTop;
+      console.log('x: ', x, 'y: ', y);
+    })
+
+    function moveXY() {
+      console.log('test');
+      // chrome v112两个api失效了
+      // window.moveTo(0, 0);
+      // window.moveBy(100, 100);
+    }
+  </script>
+</body>
+</html>
