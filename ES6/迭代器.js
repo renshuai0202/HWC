@@ -43,9 +43,9 @@ const obj = {
 const arrayKeys = Object.keys(obj);
 const arrayValues = Object.values(obj);
 const arrayKeysValues = Object.entries(obj);
-console.log(arrayKeys);
-console.log(arrayValues);
-console.log(arrayKeysValues);
+console.log(arrayKeys); // [ 'name', 'age', 'male' ]
+console.log(arrayValues); // [ 'zhangsan', 18, true ]
+console.log(arrayKeysValues); // [ [ 'name', 'zhangsan' ], [ 'age', 18 ], [ 'male', true ] ]
 
 
 
